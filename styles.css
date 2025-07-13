@@ -331,6 +331,316 @@ tr:last-child td {
     animation: fadeInUp 0.6s ease-out;
 }
 
+/* 広告スタイル */
+.dummy-sidebar-ads {
+    margin: 2rem 0;
+    text-align: center;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #ffe6f2 0%, #ffccdd 100%);
+    border: 3px solid #ff69b4;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+}
+
+.dummy-sidebar-ads::before {
+    content: "スポンサード";
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(45deg, #ff1493, #ff69b4);
+    color: white;
+    padding: 0.4rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+    letter-spacing: 1px;
+}
+
+.dummy-sidebar-ads::after {
+    content: "広告";
+    position: absolute;
+    bottom: -15px;
+    right: 15px;
+    background: #ff4500;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+/* インライン広告 */
+.inline-ad {
+    margin: 2rem 0;
+    text-align: center;
+    padding: 1rem;
+    background: linear-gradient(135deg, #fff9e6 0%, #fff2cc 100%);
+    border: 2px dashed #ffa500;
+    border-radius: 8px;
+    position: relative;
+}
+
+.inline-ad::before {
+    content: "広告";
+    position: absolute;
+    top: -12px;
+    left: 10px;
+    background: #ff6b35;
+    color: white;
+    padding: 0.2rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.inline-ad-item {
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.inline-ad-item:hover {
+    transform: scale(1.05);
+}
+
+.inline-ad-overlay {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #ff4444;
+    color: white;
+    padding: 0.3rem 0.6rem;
+    border-radius: 15px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* テーブル後広告 */
+.table-ad {
+    margin: 2rem 0;
+    text-align: center;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #e6f3ff 0%, #ccddff 100%);
+    border: 2px solid #4169e1;
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(65, 105, 225, 0.2);
+}
+
+.table-ad::before {
+    content: "✨ おすすめ ✨";
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(45deg, #4169e1, #6495ed);
+    color: white;
+    padding: 0.4rem 1.5rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
+.table-ad-item {
+    position: relative;
+    display: inline-block;
+    border: 3px solid #ffd700;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.table-ad-item:hover {
+    transform: rotate(-2deg) scale(1.05);
+}
+
+.table-ad-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(255,20,147,0.9));
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    border-top: 2px solid #ffd700;
+}
+
+.table-ad-overlay h4 {
+    margin: 0 0 0.3rem 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.table-ad-overlay p {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.sidebar-ad-item {
+    position: relative;
+    display: inline-block;
+}
+
+.video-ad-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    color: white;
+    padding: 1rem;
+    border-radius: 0 0 8px 8px;
+}
+
+.video-ad-overlay h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* ポップアップ広告 */
+.popup-ad {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.popup-content {
+    position: relative;
+    background: linear-gradient(135deg, #fff 0%, #f0f8ff 100%);
+    padding: 1rem;
+    border-radius: 20px;
+    max-width: 500px;
+    margin: 2rem;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    border: 5px solid #ff1493;
+    animation: popIn 0.5s ease-out;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.5) rotate(-10deg); opacity: 0; }
+    50% { transform: scale(1.1) rotate(5deg); }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.popup-content::before {
+    content: "🎉 特別オファー 🎉";
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(45deg, #ff1493, #ff69b4);
+    color: white;
+    padding: 0.5rem 2rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { box-shadow: 0 5px 15px rgba(255,20,147,0.3); }
+    to { box-shadow: 0 5px 25px rgba(255,20,147,0.8); }
+}
+
+.close-popup {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 30px;
+    height: 30px;
+    background: #ff4444;
+    color: white;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 30px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.close-popup:hover {
+    background: #ff0000;
+    transform: scale(1.1);
+}
+
+.popup-ad-item {
+    position: relative;
+    text-align: center;
+    border: 3px dashed #ffd700;
+    border-radius: 15px;
+    overflow: hidden;
+    background: linear-gradient(45deg, #fff9c4, #ffed4e);
+}
+
+.popup-ad-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(255,69,0,0.95));
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.popup-ad-overlay h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    animation: pulse 2s infinite;
+}
+
+.popup-ad-overlay p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
 /* スクロールバーのカスタマイズ */
 ::-webkit-scrollbar {
     width: 8px;
@@ -347,4 +657,40 @@ tr:last-child td {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #a8a8a8;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 480px) {
+    .popup-content {
+        margin: 1rem;
+        padding: 1rem;
+    }
+    
+    .dummy-sidebar-ads img {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+    }
+    
+    .popup-ad-item img {
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+    }
+    
+    .inline-ad {
+        text-align: center;
+    }
+    
+    .inline-ad-item img {
+        width: 100%;
+        max-width: 220px;
+        height: auto;
+    }
+    
+    .table-ad-item img {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+    }
 }

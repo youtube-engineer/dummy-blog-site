@@ -53,11 +53,31 @@
                             
                             <h4>利用方法</h4>
                             <p>生食のほか、ジュース、アイスクリーム、デザートの材料として世界中で愛されています。</p>
+                            
+                            <!-- インライン広告1 -->
+                            <div class="inline-ad">
+                                <div class="inline-ad-item">
+                                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCFbqQaNJVFuLJSCb6uM8_cWKScKW9Br1iBmOBPsk3F4Yv3B1K85THH8x7_Sjn0Vbk_aHdsb1F_mfeCz4JGlIFhjJMvGkIOqTT2edYotSgwJ9QqDedg9Tlr8zEaqDqUYIGT9HI7xi-f4E/s800/ayashii_koukoku_fukugyou.png" width="250" height="140" alt="広告" style="border-radius: 6px;">
+                                    <div class="inline-ad-overlay">
+                                        <span>PR</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </section>
 
+                    <!-- 広告挿入 -->
+                    <div class="dummy-sidebar-ads">
+                        <div class="sidebar-ad-item">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCFbqQaNJVFuLJSCb6uM8_cWKScKW9Br1iBmOBPsk3F4Yv3B1K85THH8x7_Sjn0Vbk_aHdsb1F_mfeCz4JGlIFhjJMvGkIOqTT2edYotSgwJ9QqDedg9Tlr8zEaqDqUYIGT9HI7xi-f4E/s800/ayashii_koukoku_fukugyou.png" width="300" height="200" alt="広告" style="border-radius: 8px;">
+                            <div class="video-ad-overlay">
+                                <h4>広告サンプル</h4>
+                            </div>
+                        </div>
+                    </div>
+
                     <section class="content-section">
-                        <h2>チンパンジーについwて</h2>
+                        <h2>🐵 チンパンジーについて</h2>
                         <div class="comparison-card chimp-card">
                             <h3>基本情報</h3>
                             <ul>
@@ -72,6 +92,16 @@
                             
                             <h4>保護の必要性</h4>
                             <p>現在、生息地の破壊により絶滅危惧種に指定されており、国際的な保護活動が行われています。</p>
+                            
+                            <!-- インライン広告2 -->
+                            <div class="inline-ad">
+                                <div class="inline-ad-item">
+                                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCFbqQaNJVFuLJSCb6uM8_cWKScKW9Br1iBmOBPsk3F4Yv3B1K85THH8x7_Sjn0Vbk_aHdsb1F_mfeCz4JGlIFhjJMvGkIOqTT2edYotSgwJ9QqDedg9Tlr8zEaqDqUYIGT9HI7xi-f4E/s800/ayashii_koukoku_fukugyou.png" width="250" height="140" alt="広告" style="border-radius: 6px;">
+                                    <div class="inline-ad-overlay">
+                                        <span>AD</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </section>
 
@@ -115,6 +145,17 @@
                                 </tbody>
                             </table>
                         </div>
+                        
+                        <!-- テーブル後広告 -->
+                        <div class="table-ad">
+                            <div class="table-ad-item">
+                                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCFbqQaNJVFuLJSCb6uM8_cWKScKW9Br1iBmOBPsk3F4Yv3B1K85THH8x7_Sjn0Vbk_aHdsb1F_mfeCz4JGlIFhjJMvGkIOqTT2edYotSgwJ9QqDedg9Tlr8zEaqDqUYIGT9HI7xi-f4E/s800/ayashii_koukoku_fukugyou.png" width="300" height="180" alt="広告" style="border-radius: 8px;">
+                                <div class="table-ad-overlay">
+                                    <h4>おすすめ商品</h4>
+                                    <p>比較記事をもっと見る</p>
+                                </div>
+                            </div>
+                        </div>
                     </section>
 
                     <section class="content-section">
@@ -129,10 +170,55 @@
         </div>
     </main>
 
+    <!-- ポップアップ広告 -->
+    <div id="popup-ad" class="popup-ad">
+        <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <div class="popup-ad-item">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCFbqQaNJVFuLJSCb6uM8_cWKScKW9Br1iBmOBPsk3F4Yv3B1K85THH8x7_Sjn0Vbk_aHdsb1F_mfeCz4JGlIFhjJMvGkIOqTT2edYotSgwJ9QqDedg9Tlr8zEaqDqUYIGT9HI7xi-f4E/s800/ayashii_koukoku_fukugyou.png" width="400" height="250" alt="広告" style="border-radius: 8px;">
+                <div class="popup-ad-overlay">
+                    <h3>特別オファー</h3>
+                    <p>限定広告をご覧ください</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer class="footer">
         <div class="container">
             <p>&copy; 2025 比較ブログ. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // ポップアップ広告の表示制御
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('popup-ad').style.display = 'flex';
+            }, 3000); // 3秒後に表示
+        });
+
+        // 閉じるボタン
+        document.querySelector('.close-popup').addEventListener('click', function() {
+            document.getElementById('popup-ad').style.display = 'none';
+        });
+
+        // 背景クリックで閉じる
+        document.getElementById('popup-ad').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
+        });
+
+        // スクロール時のポップアップ表示
+        let scrollPopupShown = false;
+        window.addEventListener('scroll', function() {
+            const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+            if (scrollPercent > 50 && !scrollPopupShown) {
+                document.getElementById('popup-ad').style.display = 'flex';
+                scrollPopupShown = true;
+            }
+        });
+    </script>
 </body>
 </html>
