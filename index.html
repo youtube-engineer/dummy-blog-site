@@ -191,22 +191,44 @@
     </footer>
 
     <script>
-        // ポップアップ広告の表示制御
+        let popupCount = 0;
+        const maxPopups = 4;
+        let lastPopupTime = 0;
+
+        function showPopup() {
+            if (popupCount >= maxPopups) return;
+            
+            const now = Date.now();
+            // 最後のポップアップから5秒以上経過している場合のみ表示
+            if (now - lastPopupTime < 5000) return;
+            
+            document.getElementById('popup-ad').style.display = 'flex';
+            popupCount++;
+            lastPopupTime = now;
+        }
+
+        function hidePopup() {
+            document.getElementById('popup-ad').style.display = 'none';
+            
+            // 次のポップアップをランダムな時間後に予約（10-20秒後）
+            if (popupCount < maxPopups) {
+                const nextDelay = Math.random() * 10000 + 10000;
+                setTimeout(showPopup, nextDelay);
+            }
+        }
+
+        // 初回ポップアップ（3秒後）
         window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.getElementById('popup-ad').style.display = 'flex';
-            }, 3000); // 3秒後に表示
+            setTimeout(showPopup, 3000);
         });
 
         // 閉じるボタン
-        document.querySelector('.close-popup').addEventListener('click', function() {
-            document.getElementById('popup-ad').style.display = 'none';
-        });
+        document.querySelector('.close-popup').addEventListener('click', hidePopup);
 
         // 背景クリックで閉じる
         document.getElementById('popup-ad').addEventListener('click', function(e) {
             if (e.target === this) {
-                this.style.display = 'none';
+                hidePopup();
             }
         });
 
@@ -214,11 +236,27 @@
         let scrollPopupShown = false;
         window.addEventListener('scroll', function() {
             const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-            if (scrollPercent > 50 && !scrollPopupShown) {
-                document.getElementById('popup-ad').style.display = 'flex';
+            if (scrollPercent > 30 && !scrollPopupShown && popupCount < maxPopups) {
+                showPopup();
                 scrollPopupShown = true;
             }
         });
+
+        // マウスが画面外に出た時（離脱しようとする時）にポップアップ
+        let exitIntentShown = false;
+        document.addEventListener('mouseleave', function(e) {
+            if (e.clientY <= 0 && !exitIntentShown && popupCount < maxPopups) {
+                showPopup();
+                exitIntentShown = true;
+            }
+        });
+
+        // 一定時間経過後の自動ポップアップ
+        setTimeout(function() {
+            if (popupCount < maxPopups) {
+                showPopup();
+            }
+        }, 25000); // 25秒後
     </script>
 </body>
 </html>
